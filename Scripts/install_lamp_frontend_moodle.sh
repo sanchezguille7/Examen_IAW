@@ -6,9 +6,7 @@ apt update
 
 #apt upgrade -y
 
-source .env
-
-apt install apache2 -y
+sudo apt install apache2 -y
  
 cp ../conf/000-default.conf /etc/apache2/sites-available/000-default.conf
 

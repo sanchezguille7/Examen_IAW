@@ -4,7 +4,7 @@ set -ex
 
 source .env
 
-sudo rm -rf /tmp/moodle_4.3.1.zip
+sudo rm -rf /tmp/v4.3.1.zip
 
 wget https://github.com/moodle/moodle/archive/refs/tags/v4.3.1.zip -P /tmp
 
@@ -12,15 +12,19 @@ sudo rm -rf /var/www/html/*
 
 sudo apt install unzip -y
 
-unzip /tmp/moodle_4.3.1.zip -d /var/www/html/
+unzip /tmp/v4.3.1.zip -d /var/www/html/
 
 sudo chown www-data:www-data /var/www/html/* -R
+
+sudo rm -rf /var/www/moodledata
 
 mkdir /var/www/moodledata
 
 chmod 0777 /var/www/moodledata
 
-sudo -u www-data php /var/www/html/admin/cli/install.php \
+sudo chmod +x /var/www/html/moodle-4.3.1/admin/cli/install.php
+
+sudo -u www-data php /var/www/html/moodle-4.3.1/admin/cli/install.php \
     --lang=$moodle_lang \
     --wwwroot=$moodle_wwwroot \
     --dataroot=$moodle_dataroot \
