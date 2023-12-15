@@ -18,8 +18,6 @@ sudo apt install unzip -y
 
 unzip /tmp/v4.3.1.zip -d /var/www/html/
 
-sudo mv moodle-4.3.1/* /var/www/html/
-
 sudo chown -R www-data:www-data /var/www/html/
 
 sudo chmod -R 755 /var/www/html/
@@ -34,7 +32,7 @@ sudo chmod -R 777 /var/www/moodledata
 
 sudo chmod +x /var/www/html/moodle-4.3.1/admin/cli/install.php
 
- sudo -u www-data /usr/bin/php /var/www/html/admin/cli/install.php \
+ sudo -u www-data php /var/www/html/moodle-4.3.1/admin/cli/install.php \
     --lang=$moodle_lang \
     --wwwroot=$moodle_wwwroot \
     --dataroot=$moodle_dataroot \
