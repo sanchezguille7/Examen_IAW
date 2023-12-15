@@ -13,4 +13,4 @@ snap install --classic certbot
 
 ln -sf /snap/bin/certbot /usr/bin/certbot 
 
-certbot --apache -m $moodle_admin_email --agree-tos --no-eff-email -d $moodle_wwwroot --non-interactive
+certbot --apache -m $moodle_admin_email --agree-tos --no-eff-email -d $urlnoip --non-interactive
