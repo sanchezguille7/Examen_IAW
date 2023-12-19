@@ -4,9 +4,12 @@ set -ex
 
 source .env
 
-sudo a2enmod rewrite
+apt update
 
-sudo systemctl restart apache2
+#apt upgrade -y
+
+sed -i "s/;max_input_vars = 1000/max_input_vars = 5000/" /etc/php/8.1/apache2/php.ini
+sed -i "s/;max_input_vars = 1000/max_input_vars = 5000/" /etc/php/8.1/cli/php.ini
 
 sudo rm -rf /tmp/v4.3.1.zip
 
@@ -16,7 +19,7 @@ sudo rm -rf /var/www/html/*
 
 sudo apt install unzip -y
 
-unzip /tmp/v4.3.1.zip -d /var/www/html/
+unzip /tmp/v4.3.1.zip -d /var/www/html
 
 sudo chown -R www-data:www-data /var/www/html/
 
