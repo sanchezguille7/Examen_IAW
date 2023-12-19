@@ -31,7 +31,7 @@ sudo mkdir /var/www/moodledata
 
 sudo chown -R www-data:www-data /var/www/moodledata
 
-sudo chmod -R 777 /var/www/moodledata
+sudo chmod -R 077 /var/www/moodledata
 
 sudo chmod +x /var/www/html/moodle-4.3.1/admin/cli/install.php
 
@@ -44,9 +44,9 @@ sudo chmod +x /var/www/html/moodle-4.3.1/admin/cli/install.php
     --dbname=$moodle_db_name \
     --dbuser=$moodle_db_user \
     --dbpass=$moodle_db_pass \
-    --fullname="$moodle_fullname" \
-    --shortname="$moodle_shortname" \
-    --summary="$moodle_summary" \
+    --fullname=$moodle_fullname \
+    --shortname=$moodle_shortname \
+    --summary=$moodle_summary \
     --adminuser=$moodle_admin_user \
     --adminpass=$moodle_admin_pass \
     --adminemail=$moodle_admin_email \
